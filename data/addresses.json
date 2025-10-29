@@ -1,0 +1,6 @@
+[
+  {"id":"1","code":"A5","title":"Home","fullAddress":"123 Main Street, Apartment 5A, New York, NY 10001","icon":"🏠"},
+  {"id":"2","code":"B3","title":"Office","fullAddress":"456 Business Plaza, Floor 3, Suite 301, Manhattan, NY 10013","icon":"🏢"},
+  {"id":"3","code":"H1","title":"Gym","fullAddress":"789 Fitness Avenue, Building H, Brooklyn, NY 11201","icon":"💪"},
+  {"id":"4","code":"C2","title":"Parents House","fullAddress":"321 Oak Street, Queens, NY 11375","icon":"👨‍👩‍👧‍👦"}
+]
