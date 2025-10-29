@@ -34,6 +34,6 @@ if __name__ == "__main__":
     json_file_path = "C:/Users/lenovo/StudioProjects/subscart_assignment/backend/data/orders.json"  # Path to your JSON file
     db_name = "subscart"
     collection_name = "orders"
-    mongo_uri = "mongodb+srv://server:Sarthak0510@users.nqq7st0.mongodb.net/"  # or your MongoDB Atlas URI
+    mongo_uri = "mongodb+srv://server:Sarthak0510@users.nqq7st0.mongodb.net/subscart"  # or your MongoDB Atlas URI
 
     upload_json_to_mongodb(json_file_path, db_name, collection_name, mongo_uri)

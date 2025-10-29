@@ -114,6 +114,41 @@ app.delete('/api/orders/:dateIndex', async (req, res) => {
   }
 });
 
+app.get('/api/reset-orders', async (req, res) => {
+  try {
+    // Delete all existing orders
+    await Order.deleteMany({});
+
+    // Load initial orders from JSON file
+    const fs = require('fs');
+    const path = require('path');
+    const ordersData = JSON.parse(
+      fs.readFileSync(path.join(__dirname, 'data', 'orders.json'), 'utf-8')
+    );
+
+    // Insert orders into database
+    const ordersToInsert = [];
+    for (const [dateIndex, orders] of Object.entries(ordersData)) {
+      orders.forEach(order => {
+        ordersToInsert.push({
+          dateIndex: parseInt(dateIndex),
+          ...order
+        });
+      });
+    }
+
+    await Order.insertMany(ordersToInsert);
+
+    res.json({
+      success: true,
+      message: 'Orders reset successfully',
+      ordersCount: ordersToInsert.length
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
