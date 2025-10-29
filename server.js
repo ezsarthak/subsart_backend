@@ -8,7 +8,7 @@ const Address = require('./models/Address');
 const Order = require('./models/Order');
 
 const app = express();
-const PORT = process.env.MONGODB_URI || 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
